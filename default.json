@@ -3,5 +3,7 @@
     "config:recommended",
     "github>reza-kaara/renovate-shareable-configs:java"
   ]
+  "vulnerabilityAlerts": {
+    "enabled": true
+  }
 }
-
