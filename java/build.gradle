@@ -1,0 +1,39 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.18' // old on purpose
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // --- Core Spring Boot (will trigger update PRs) ---
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // --- Popular frameworks with known update churn ---
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.20.0' // old; known CVEs
+    implementation 'org.apache.commons:commons-lang3:3.19.0' // behind latest
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14' // will suggest httpclient5
+    implementation 'com.google.guava:guava:31.1-jre' // minor updates exist
+
+    // --- Database and logging dependencies ---
+    implementation 'org.postgresql:postgresql:42.7.8' // outdated
+    implementation 'org.apache.logging.log4j:log4j-core:2.25.2' // intentionally vulnerable (CVE-2021-44228)
+    implementation 'org.flywaydb:flyway-core:8.5.13'
+
+    // --- Testing / misc ---
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-core:4.11.0'
+    testImplementation 'org.assertj:assertj-core:3.27.6'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.14.0'
+}
+tasks.named('test') {
+    useJUnitPlatform()
+}
