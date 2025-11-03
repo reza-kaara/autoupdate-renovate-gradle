@@ -3,7 +3,4 @@
     "config:recommended",
     "github>reza-kaara/renovate-shareable-configs"
   ]
-  "vulnerabilityAlerts": {
-    "enabled": true
-  }
 }
