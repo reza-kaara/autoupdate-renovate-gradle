@@ -1,11 +1,6 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "packageRules": [
-    {
-      "matchManagers": ["gradle"],
-      "groupName": "java-regular-updates",
-      "matchUpdateTypes": ["minor", "patch"]
-    }
+  "extends": [
+    "config:recommended",
+    "github>reza-kaara/renovate-shareable-configs"
   ]
 }
