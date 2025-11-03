@@ -1,0 +1,31 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "schedule": ["at any time"],
+  "prConcurrentLimit": 10,
+  "branchConcurrentLimit": 10,
+  "packageRules": [
+    {
+      "matchManagers": ["gradle", "gradle-plugin"],
+      "matchPackageNames": [
+        "org.springframework.boot",
+        "org.junit.jupiter:junit-jupiter"
+      ],
+      "groupName": "regular-updates",
+      "matchUpdateTypes": ["patch", "minor"],
+      "commitMessagePrefix": "deps(java): "
+    },
+    {
+      "matchManagers": ["gradle", "gradle-plugin"],
+      "matchPackageNames": [
+        "org.mockito:mockito-core",
+        "org.flywaydb:flyway-core",
+      ],
+      "groupName": "sidedish-updates",
+      "commitMessagePrefix": "deps(java): "
+      "matchManagers": ["gradle"],
+      "groupName": "java-regular-updates",
+      "matchUpdateTypes": ["minor", "patch"]
+    }
+  ]
+}
